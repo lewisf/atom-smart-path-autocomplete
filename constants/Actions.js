@@ -1,0 +1,5 @@
+"use babel";
+
+export const START_PATHS_LOAD = 'START_PATHS_LOAD';
+export const PATHS_LOADED = 'PATHS_LOADED';
+export const TERMINATE_PATHS_LOAD = 'TERMINATE_PATHS_LOAD';
