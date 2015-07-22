@@ -8,7 +8,8 @@ import {
 const initialState = {
   paths: [],
   loaded: false,
-  loading: false
+  loading: false,
+  loadStartTime: null
 };
 
 export default function paths(state = initialState, action = {}) {
@@ -16,15 +17,21 @@ export default function paths(state = initialState, action = {}) {
     case START_PATHS_LOAD:
       return {
         ...state,
-        task: action.task
+        task: action.task,
+        loadStartTime: new Date()
       };
     case PATHS_LOADED:
+      if (state.loadStartTime) {
+        let ms = new Date() - state.loadStartTime;
+        console.log(`Loading paths took: ${ms} milliseconds`);
+      }
       return {
         ...state,
         loading: false,
         loaded: true,
         task: null,
-        paths: action.result
+        paths: action.result,
+        loadStartTime: null
       };
     case TERMINATE_PATHS_LOAD:
       state.task.terminate();
@@ -33,6 +40,7 @@ export default function paths(state = initialState, action = {}) {
         loading: false,
         loaded: false,
         task: null,
+        loadStartTime: null,
       }
     default:
       return state;
