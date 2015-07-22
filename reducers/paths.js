@@ -34,7 +34,7 @@ export default function paths(state = initialState, action = {}) {
         loadStartTime: null
       };
     case TERMINATE_PATHS_LOAD:
-      state.task.terminate();
+      state.task && state.task.terminate();
       return {
         ...state,
         loading: false,

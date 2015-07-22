@@ -32,7 +32,7 @@ function pathLoadTask(dispatch) {
     var repo = null;
     if (config.useGitIgnore) {
       let repos = atom.project.getRepositories();
-      repo = repos.length ? repos : null;
+      repo = repos.length ? repos[0] : null;
       if (repo) {
         processedPaths = processedPaths.filter(filepath => {
           let relativePath = path.relative(projectRoot, filepath);
@@ -40,6 +40,8 @@ function pathLoadTask(dispatch) {
         });
       }
     }
+
+    processedPaths = processedPaths.filter(filepath => filepath.indexOf('/nls/') === -1);
 
     // TODO: Implement filtering based on a whitelist of file extensions.
 
@@ -55,11 +57,9 @@ function pathLoadTask(dispatch) {
 
 export function startLoadPaths() {
   return dispatch => {
-    var task = setTimeout(() => pathLoadTask(dispatch), 1000);
-
     dispatch({
       type: START_PATHS_LOAD,
-      task: task
+      task: setTimeout(pathLoadTask, 1000, dispatch)
     });
   };
 }
