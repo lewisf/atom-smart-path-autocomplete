@@ -148,8 +148,8 @@ rules:
     - 1
     - "after"
   quotes: # require quotes around object literal property names (off by default)
-    - 1
-    - "single"
+    - 0
+    - "double"
     - "avoid-escape"
   quote-props: # require quotes around object literal property names (off by default)
     - 0 # our legacy APIs return values like 'start_date' and we prefer to quote them to maintain symbol casing
