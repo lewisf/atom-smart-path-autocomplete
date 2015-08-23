@@ -1,48 +1,45 @@
-"use babel";
-import {
-  PATHS_LOADED,
-  START_PATHS_LOAD,
-  TERMINATE_PATHS_LOAD
-} from '../constants/Actions'
+'use babel';
+
+var arrayToObject = (items) => {
+  return items.reduce(function(obj, str) {
+      obj[str] = str;
+      return obj;
+    },
+    {}
+  );
+}
 
 const initialState = {
-  paths: [],
-  loaded: false,
-  loading: false,
-  loadStartTime: null
+  paths: new Map(),
 };
 
 export default function paths(state = initialState, action = {}) {
   switch (action.type) {
-    case START_PATHS_LOAD:
-      return {
-        ...state,
-        task: action.task,
-        loadStartTime: new Date()
-      };
-    case PATHS_LOADED:
-      if (state.loadStartTime) {
-        let ms = new Date() - state.loadStartTime;
-        console.log(`Loading paths took: ${ms} milliseconds`);
-      }
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        task: null,
-        paths: action.result,
-        loadStartTime: null
-      };
-    case TERMINATE_PATHS_LOAD:
-      state.task && state.task.terminate();
-      return {
-        ...state,
-        loading: false,
-        loaded: false,
-        task: null,
-        loadStartTime: null,
-      }
-    default:
-      return state;
+  case 'ADD_PATH':
+    return {
+      ...state,
+      paths: state.paths.set(action.path, action.path)
+    };
+  case 'ADD_PATHS':
+    return {
+      ...state,
+      paths: action.paths.reduce((memo, path) => {
+        return memo.set(path, path);
+      }, state.paths)
+    };
+  case 'REMOVE_PATH':
+    return {
+      ...state,
+      paths: state.paths.delete(action.path)
+    };
+  case 'REMOVE_PATHS':
+    var tmpPaths = state.paths;
+    action.paths.forEach(path => tmpPaths.delete(path));
+    return {
+      ...state,
+      paths: tmpPaths
+    }
+  default:
+    return {...state}
   }
 }
