@@ -2,7 +2,7 @@
   "name": "atom-smart-path-autocomplete",
   "author": "Lewis Chung <lewis.f.chung@gmail.com>",
   "version": "0.0.2",
-  "main": "./lib/atom-smart-path-autocomplete",
+  "main": "./lib/atom-smart-path-autocomplete2",
   "providedServices": {
     "autocomplete.provider": {
       "versions": {
@@ -21,6 +21,11 @@
   "dependencies": {
     "fuzzaldrin": ">=1.0.0",
     "lodash": ">=3.10.0",
-    "redux": "git+ssh://git@github.com:gaearon/redux.git#v1.0.0-alpha"
+    "redux": "git+ssh://git@github.com:gaearon/redux.git#v1.0.0-alpha",
+    "bluebird": ">=2.9.0"
+  },
+  "devDependencies": {
+    "triple-latte": "git+ssh://git@github.com:coursera/triple-latte.git#v0.2.12",
+    "chai": "~1.9.1"
   }
 }

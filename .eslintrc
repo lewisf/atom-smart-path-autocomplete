@@ -41,7 +41,7 @@ rules:
   comma-dangle: # disallow or enforce trailing commas
     - 0
     - "always-multiline"
-  no-reserved-keys: 2 # disallow reserved words being used as object literal keys (off by default)
+  no-reserved-keys: 0 # disallow reserved words being used as object literal keys (off by default)
 
   # http://eslint.org/docs/rules/#best-practices
   accessor-pairs: 2 # Enforces getter/setter pairs in objects (off by default)
