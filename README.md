@@ -2,6 +2,26 @@
 
 Given a project, do configurable path completion for javascript packages.
 
+## Setup
+
+Make sure you install fb-watchman
+
+```
+brew install watchman --HEAD
+```
+
+DO NOT INSTALL IT WITH NPM. If you did:
+
+```
+npm uninstall watchman
+```
+
+Then run:
+```
+npm install
+apm link
+```
+
 ## Configuration
 
 TODO
