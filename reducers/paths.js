@@ -28,9 +28,10 @@ export default function paths(state = initialState, action = {}) {
       }, state.paths)
     };
   case 'REMOVE_PATH':
+    // TODO: Immutable here
+    state.paths.delete(action.path);
     return {
-      ...state,
-      paths: state.paths.delete(action.path)
+      ...state
     };
   case 'REMOVE_PATHS':
     var tmpPaths = state.paths;
