@@ -11,18 +11,18 @@
     }
   },
   "description": "Autocomplete plugin for doing autocompletions.",
-  "keywords": [
-  ],
+  "keywords": [],
   "repository": "https://github.com/atom/atom-smart-path-autocomplete",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "bluebird": ">=2.9.0",
+    "fb-watchman": "^1.6.0",
     "fuzzaldrin": ">=1.0.0",
     "lodash": ">=3.10.0",
-    "redux": "git+ssh://git@github.com:gaearon/redux.git#v1.0.0-alpha",
-    "bluebird": ">=2.9.0"
+    "redux": "^3.0.5"
   },
   "devDependencies": {
     "triple-latte": "git+ssh://git@github.com:coursera/triple-latte.git#v0.2.12",
