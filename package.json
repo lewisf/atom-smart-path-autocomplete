@@ -1,7 +1,7 @@
 {
   "name": "atom-smart-path-autocomplete",
   "author": "Lewis Chung <lewis.f.chung@gmail.com>",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "main": "./lib/atom-smart-path-autocomplete",
   "providedServices": {
     "autocomplete.provider": {
