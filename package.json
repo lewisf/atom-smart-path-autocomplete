@@ -12,7 +12,7 @@
   },
   "description": "Autocomplete plugin for doing autocompletions.",
   "keywords": [],
-  "repository": "https://github.com/atom/atom-smart-path-autocomplete",
+  "repository": "https://github.com/lewisf/atom-smart-path-autocomplete",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
